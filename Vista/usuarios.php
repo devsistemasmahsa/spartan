@@ -10,7 +10,6 @@
 
     <title>MAHSA | WEBMASTER </title>
     <?php require 'css.php'; ?>
-    
 
 </head>
 
@@ -38,64 +37,62 @@
                             </div>
                         </div>
                         <div class="ibox-content">
+                            <div id="contenido_externo"></div>
                             <input type="text" class="form-control input-sm m-b-xs" id="filter"
                             placeholder="Buscar usuario">
                             <table class="footable table table-stripped toggle-arrow-tiny" data-filter=#filter>
                                 <thead>
                                     <tr>
 
-                                        <th data-toggle="true">Project</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th data-hide="all">Company</th>
-                                        <th data-hide="all">Completed</th>
-                                        <th data-hide="all">Task</th>
-                                        <th data-hide="all">Date</th>
-                                        <th>Action</th>
+                                        <th data-toggle="true">Nombre</th>
+                                        <th data-hide="all">Usuario</th>
+                                        <th data-hide="all">Telefono</th>
+                                        <th >Puesto</th>
+                                        <th data-hide="all">Sucursal</th>
+                                        <th >Accion</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Project - This is example of project</td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Betha project</td>
-                                        <td>John Smith</td>
-                                        <td>0800 1111</td>
-                                        <td>Erat Volutpat</td>
-                                        <td><span class="pie">3,1</span></td>
-                                        <td>75%</td>
-                                        <td>Jul 18, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-
+                                    <?php //IMPRIMIMOS TODOS LOS USUARIOS
+                                        require '../Modelo/conexion.php';
+                                        $buscausuarios = "SELECT * FROM usuario";
+                                        $eje_buscausuarios = mysqli_query($conexionbdwm, $buscausuarios) or die("
+                                            <table border='1px' align='center'>
+                                                    <tr>
+                                                        <th>Error</th>
+                                                        <th>Descripcion</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>103</td>
+                                                        <td>
+                                                            <ul style='list-style:none;'><br>
+                                                                <li>No se pudo obtener el listado de usuarios</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            ");
+                                        while ($rowusuario=mysqli_fetch_array($eje_buscausuarios)) {
+                                            extract($rowusuario);
+                                            echo "
+                                            <tr>
+                                                
+                                                <td>".$nombre."</td>
+                                                <td>".$usuario."</td>
+                                                <td>".$telefono."</td>
+                                                <td>".$puesto."</td>
+                                                <td>".$sucursal."</td>
+                                                <td>
+                                                    <form action='../Controlador/eliminausuario.php' method='POST'>
+                                                        <input type='hidden' value='".$Id_usuario."' name='idxno'>
+                                                        <button type='submit' class='btn btn-danger'><i class='fa fa-trash'></i>Eliminar</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            ";
+                                        }
+                                        mysqli_close($conexionbdwm);
+                                    ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -120,23 +117,36 @@
                             <small class="font-bold">Registro de usuario</small>
                         </div>
                         <div class="modal-body">
+                            <form role="form" action="../Controlador/registrausuario.php" method="POST" >
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="form-group"><label>Nombre</label> <input type="text" placeholder="" class="form-control"></div>
-                                    <div class="form-group"><label>Teléfono</label> <input type="text" placeholder="" class="form-control"></div>
-                                    <div class="form-group"><label>Correo electrónico</label> <input type="text" placeholder="" class="form-control"></div>
-
+                                    <div class="form-group"><label>Nombre</label> <input type="text" name="nombre" placeholder="" class="form-control"></div>
+                                    <div class="form-group"><label>Teléfono</label> <input type="text" name="telefono" placeholder="" class="form-control"></div>
+                                    <div class="form-group"><label>Sucursal a la que pertenecerá</label> 
+                                        <select class="form-control m-b" name="sucursal">
+                                            <option selected="true" disabled="true">Selecciona sucursal</option>
+                                            <option value="HMO">Hermosillo</option>
+                                            <option value="GYS">Guaymas</option>
+                                            <option value="NGS">Nogales </option>
+                                        </select><br>
+                                    </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="form-group"><label>Usuario</label> <input type="text" placeholder="" class="form-control"></div>
-                                    <div class="form-group"><label>Contraseña</label> <input type="text" placeholder="" class="form-control"></div>
-                                    <div class="form-group"><label>Confirma contraseña</label> <input type="text" placeholder="" class="form-control"></div>
+                                    <div class="form-group"><label>Usuario</label> <input type="text" name="usuario" placeholder="" class="form-control"></div>
+                                    <div class="form-group"><label>Contraseña</label> <input type="text" name="contra" placeholder="" class="form-control"></div>
                                     <div class="form-group"><label>Sucursal a la que pertenecerá</label> 
-                                        <select class="form-control m-b" name="account">
-                                            <option selected="true" disabled="true">Selecciona sucursal</option>
-                                            <option>Hermosillo</option>
-                                            <option>Guaymas</option>
-                                            <option>Nogales </option>
+                                        <select class="form-control m-b" name="puesto">
+                                            <option selected="true" disabled="true">Selecciona uno</option>
+                                            <option value="Superusuario">Superusuario</option>
+                                            <option value="Servicio">Servicio</option>
+                                            <option value="Rentas">Rentas</option>
+                                            <option value="Tecnico">Tecnico</option>
+                                            <option value="Compras">Compras</option>
+                                            <option value="Auxiliar_Administrativo">Auxiliar Administrativo</option>
+                                            <option value="Lider_de_Refacciones">Lider de Refacciones</option>
+                                            <option value="Lider_de_Taller">Lider de Taller</option>
+                                            <option value="Atencion_a_Clientes">Atencion a Clientes</option>
+                                            <option value="Prestamo_de_refacciones">Prestamo de refacciones</option>
                                         </select><br>
                                     </div>
                                 </div>
@@ -145,7 +155,8 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            </form>
                         </div>
                     </div>
                 </div>

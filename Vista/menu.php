@@ -16,6 +16,10 @@
                     </div>
                 </li>
                 <li >
+                    <a href="TablaDeErrores.php"><i class="fa fa-drupal"></i> <span class="nav-label">Tabla de errores</span></a>
+                    
+                </li>
+                <li >
                     <a href="indexprincipal.php"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span></a>
                     
                 </li>
@@ -41,6 +45,10 @@
                 </li> 
                 <li >
                     <a href="proveedores.php"><i class="fa fa-address-card"></i> <span class="nav-label">Proveedores</span></a>
+                    
+                </li>
+                <li >
+                    <a href="marcas.php"><i class="fa fa-address-card"></i> <span class="nav-label">Marca</span></a>
                     
                 </li>
                 

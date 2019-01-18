@@ -63,15 +63,15 @@
                                  </tr>
                                  <tr>
                                      <td>107</td>
-                                     <td>proveedores</td>
+                                     <td>Problemas en la inserción de levantamientos</td>
                                  </tr>
                                  <tr>
                                      <td>108</td>
-                                     <td>proveedores</td>
+                                     <td>Problemas en la inserción de listado con levantamiento</td>
                                  </tr>
                                  <tr>
                                      <td>109</td>
-                                     <td>proveedores</td>
+                                     <td>Problemas en la inserción de listado sin levantamiento</td>
                                  </tr>
                                  <tr>
                                      <td>110</td>

@@ -33,25 +33,59 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12"><h3 class="m-t-none m-b"></h3>
                                 <p></p>
-                                <form role="form">
-                                    <div class="form-group"><label>Folio</label> <input type="text" placeholder="" class="form-control"></div>
-                                    <div class="form-group"><label>No. Económico</label> <input type="text" placeholder="" class="form-control"></div>
-                                    <div class="form-group"><label>Cliente</label> 
-                                    <select class="form-control m-b" name="account">
+                                <form role="form" action="../Controlador/registralevantamiento.php" method="POST">
+                                    <div class="form-group"><label>Folio</label> <input type="text" placeholder="" name="folio" class="form-control"></div>
+                                    <div class="form-group"><label>No. Económico</label> <input type="text" placeholder="" name="noeconomico" class="form-control"></div>
+                                    <div class="form-group"><label>cliente</label> 
+                                    <select class="form-control m-b" name="cliente">
                                         <option disabled="true" selected="true">Seleccione cliente</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
+                                        <?php //IMPRIMIMOS TODOS LOS CLIENTES
+                                        require '../Modelo/conexion.php';
+                                        $buscamarca = "SELECT Id_cliente,nombre FROM cliente";
+                                        $eje_buscamarca = mysqli_query($conexionbdwm, $buscamarca) or die("
+                                                <table border='1px' align='center'>
+                                                    <tr>
+                                                        <th>Error</th>
+                                                        <th>Descripcion</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>105</td>
+                                                        <td>
+                                                            <ul style='list-style:none;'><br>
+                                                                <li>No se pudo obtener el listado de clientes</li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            ");
+                                        while ($rowmarca=mysqli_fetch_array($eje_buscamarca)) {
+                                            extract($rowmarca);
+                                            echo "
+                                            <option value=".$Id_cliente.">".$nombre."</option>
+                                            ";
+                                        }
+                                        mysqli_close($conexionbdwm);
+                                    ?>
                                     </select>
                                     </div>
-                                    <div class="form-group"><label>Sucursal</label> 
-                                            <select class="form-control m-b" name="account">
+                                    <div class="form-group"><label>Tipo de levantamiento</label> 
+                                            <select class="form-control m-b" name="tipolev">
                                                 <option selected="true" disabled="true">Selecciona sucursal</option>
-                                                <option>Hermosillo</option>
-                                                <option>Guaymas</option>
-                                                <option>Nogales </option>
-                                            </select><br>
-                                            </div>
+                                                <option value="1">Combustión</option>
+                                                <option value="2">Eléctrico</option>
+                                                <option value="3">Reparación</option>
+                                                <option value="4">Refacción</option>
+                                            </select>
+                                    </div>
+                                    <div class="form-group"><label>Sucursal</label> 
+                                            <select class="form-control m-b" name="sucursal">
+                                                <option selected="true" disabled="true">Selecciona sucursal</option>
+                                                <option value="HMO">Hermosillo</option>
+                                                <option value="GYS">Guaymas</option>
+                                                <option value="NGS">Nogales </option>
+                                            </select>
+                                    </div>
+                                   
                                     <div>
                                         <label> <a href="#" data-toggle="modal" data-target="#myModal5" class="form-control btn btn-secondary"> Agregar cliente </a></label>
                                         <button class="btn btn-primary" type="submit"><strong>Guardar levantamiento </strong></button>

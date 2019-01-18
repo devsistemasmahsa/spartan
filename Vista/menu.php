@@ -28,6 +28,10 @@
                     
                 </li>
                 <li >
+                    <a href="crealevantamiento.php"><i class="fa fa-home"></i> <span class="nav-label">Crea levantamiento</span></a>
+                    
+                </li>
+                <li >
                     <a href="#" data-toggle="modal" data-target="#modalcrealistado"><i class="fa fa-list"></i> <span class="nav-label">Crear listado</span></a>
                     
                 </li>
@@ -148,10 +152,10 @@
                                             <small class="font-bold">Fecha del listado: <?php echo date('d-m-Y') ?></small>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="crealistado.php">
+                                            <form action="../Controlador/registralistado.php" method="POST">
                                             <div class="form-group"><p>¿Tiene levantamiento?</p>
                                                
-
+                                                
                                                 <div class="col-sm-10">
                                                     <div class="radio-inline "><label> <input type="radio"  name="levantamiento" id="si_l" value="1" onclick="pregunta(1)" checked> <i></i>Si </label></div>
                                                     <div class="radio-inline "><label> <input type="radio"  name="levantamiento" id="si_l" value="2" onclick="pregunta(2)" > <i></i>No </label></div>
@@ -159,13 +163,38 @@
                                             </div>
                                             
                                             <div id="levantamientos" class="form-group"><label>Levantamiento</label> 
-                                            <select class="form-control m-b" name="account">
+                                            <select class="form-control m-b" name="folio">
                                                 <option selected="true" disabled="true">Selecciona un levantamiento</option>
-                                                <option>Hermosillo</option>
-                                                <option>Guaymas</option>
-                                                <option>Nogales </option>
+                                                <?php //IMPRIMIMOS TODOS LOS LEVANTAMIENTOS
+                                            require '../Modelo/conexion.php';
+                                            $buscamarca = "SELECT Id_levantamiento,folio,cliente FROM levantamientos";
+                                            $eje_buscamarca = mysqli_query($conexionbdwm, $buscamarca) or die("
+                                                    <table border='1px' align='center'>
+                                                        <tr>
+                                                            <th>Error</th>
+                                                            <th>Descripcion</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>105</td>
+                                                            <td>
+                                                                <ul style='list-style:none;'><br>
+                                                                    <li>No se pudo obtener los levantamientos</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                ");
+                                            while ($rowmarca=mysqli_fetch_array($eje_buscamarca)) {
+                                                extract($rowmarca);
+
+                                                echo "
+                                            <option value=".$folio.">".$folio." - ".$cliente."</option>";
+                                            }
+                                            mysqli_close($conexionbdwm);
+                                            ?>
                                             </select>
                                             </div>
+                                            
                                         </div>
 
                                         <div class="modal-footer">

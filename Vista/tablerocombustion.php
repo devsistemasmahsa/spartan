@@ -239,9 +239,9 @@
                                     <div class="form-group"><label>Sucursal</label> 
                                             <select class="form-control m-b" name="account">
                                                 <option selected="true" disabled="true">Selecciona sucursal</option>
-                                                <option>Hermosillo</option>
-                                                <option>Guaymas</option>
-                                                <option>Nogales </option>
+                                                <option value="HMO">Hermosillo</option>
+                                                <option value="GYS">Guaymas</option>
+                                                <option value="NGS">Nogales </option>
                                             </select>
                                     </div>
                                    

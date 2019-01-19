@@ -36,6 +36,36 @@ if (isset($_POST['nombre']) and isset($_POST['telefono']) and isset($_POST['sucu
 					</tr>
     			</table>
     		');
+    	$buscausuario2 = "SELECT Id_usuario FROM usuario WHERE usuario='$usuario'";
+    	$eje_buscausuario2 = mysqli_query($conexionbdwm, $buscausuario2) or die("no se puede checar");
+    	$resultado2 = mysqli_fetch_array($eje_buscausuario2);
+    	extract($resultado2);
+
+    	$registrausuario = "INSERT INTO permisos (id_usuario) VALUES ($Id_usuario)";
+    	$eje_registrausuario = mysqli_query($conexionbdwm, $registrausuario) or die('
+			<table border="1px" align="center">
+					<tr>
+						<th>Error</th>
+						<th>Descripcion</th>
+					</tr>
+					<tr>
+						<td>100</td>
+						<td>
+							<ul style="list-style:none;"><br>
+							    <li>Verifique el tipo de dato que envia</li>
+							    <li>Verifique que la consulta sql este bien escrita</li>
+							    <li>Verifique los parametros que envia</li>
+							</ul>
+						</td>
+					</tr>
+    			</table>
+    		');
+
+
+
+
+
+
     	mysqli_close($conexionbdwm);
     	header('Location: ../Vista/usuarios.php');
     }

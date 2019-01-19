@@ -80,7 +80,7 @@ if (isset($_POST['levantamiento'])) {
 		//CREAMOS EL LISTADO SIN LEVANTAMIENTO
 		//jalamos sucursal de las variables de sesion 
 		$sucursal="HMO";
-		$reg_listado="INSERT INTO listados (num_listado,num_levantamiento,fecha_listado,sucursal) values($last_listado,$num_lev,'$fecha','$sucursal')";
+		$reg_listado="INSERT INTO listados (num_listado,num_levantamiento,fecha_listado,sucursal) values(  $last_listado,'$num_lev','$fecha','$sucursal')";
 		$eje_reg_listado=mysqli_query($conexionbdwm,$reg_listado)or die('
 			<table border="1px" align="center">
 					<tr>

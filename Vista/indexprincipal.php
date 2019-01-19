@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -23,8 +24,13 @@
                     <?php //AQUI VA EL CONTENIDO DE LA PAGINA ?>
                          <div class="jumbotron">
                              <center><h4>Bienvenido</h4>
-                                <p>[AquiNombreUsuario]</p>
+                                <p><?php echo $_SESSION['nombre']; ?></p>
+                                <p><?php echo $_SESSION['a10']; ?></p>
+                                <p><?php echo $_SESSION['a11']; ?></p>
                                 <p>VENI, VIDI, VICI</p>
+                                <?php 
+                                //secho $_SESSION['nombre'];
+                                 ?>
                              </center>
                          </div>
 

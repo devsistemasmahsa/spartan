@@ -29,10 +29,13 @@
                              <input type="text" class="form-control input-sm m-b-xs" id="filter"
                             placeholder="Buscar error por codigo o descripcion">
                              <table class="footable table-striped table-bordered table-hover" data-filter=#filter>
+                                <thead>
+                                <tbody>
                                  <tr>
                                      <th>Codigo</th>
                                      <th>Descripción</th>
                                  </tr>
+                                </thead>
                                  <tr>
                                      <td>100</td>
                                      <td>Problemas en la inserción de usuarios</td>
@@ -74,9 +77,21 @@
                                      <td>Problemas en la inserción de listado sin levantamiento</td>
                                  </tr>
                                  <tr>
-                                     <td>110</td>
-                                     <td>proveedores</td>
+                                     <td>111</td>
+                                     <td>No se pudo realizar la conexion a la base de datos</td>
                                  </tr>
+                                 <tr>
+                                     <td>112</td>
+                                     <td>Problemas al obtener los permisos</td>
+                                 </tr>
+                             </tbody>
+                             <tfoot>
+                                <tr>
+                                    <td colspan="11">
+                                        <ul class="pagination pull-right"></ul>
+                                    </td>
+                                </tr>
+                                </tfoot>
                              </table>
                          </div>
 

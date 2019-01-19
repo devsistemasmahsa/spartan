@@ -1,3 +1,10 @@
+<?php session_start();  ?>
+<?php 
+if (!isset($_SESSION['nombre'])) {
+    header('Location: login.php');
+    exit();
+}
+ ?>
 <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
@@ -5,9 +12,20 @@
                     <div class="dropdown profile-element"> <span>
                             <img alt="image" class="img-circle" src="../content/img/profile_small.jpg" />
                              </span>
-                        
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">[Nombre Usuario]</strong>
-                             </span> <span class="text-muted text-xs block">[Puesto]<b class="caret"></b></span> </span> </a>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong style="color: white" class="font-bold"><?php echo $_SESSION['nombre']; ?></strong>
+                                <span class="block m-t-xs"> <strong style="color: white" class="font-bold">Sucursal: <?php echo $_SESSION['sucursal']; ?></strong>
+                             </span>
+                             </span> <span class="text-muted text-xs block"><?php echo $_SESSION['puesto']; ?><b class="caret"></b></span> </span> </a>
+                        <?php if ($_SESSION['nombre']=='Alberto Rodriguez' or $_SESSION['nombre']=='Daniel Mendoza') { ?>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="permisos.php">Permisos</a></li>
+                            <!-- <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a></li> -->
+                        </ul>
+                        <?php } ?> 
                         
                     </div>
                     <div class="logo-element">
@@ -15,46 +33,58 @@
                         
                     </div>
                 </li>
+    <?php if ($_SESSION['a100']==1) { ?>
+    
                 <li >
-                    <a href="TablaDeErrores.php"><i class="fa fa-drupal"></i> <span class="nav-label">Tabla de errores</span></a>
-                    
+                    <a href="TablaDeErrores.php"><i class="fa fa-drupal"></i> <span class="nav-label">Tabla de errores</span></a>              
+                  
                 </li>
+    <?php } ?> 
                 <li >
                     <a href="indexprincipal.php"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span></a>
                     
                 </li>
+    <?php if ($_SESSION['a10']==1) {?> 
                 <li >
                     <a href="usuarios.php"><i class="fa fa-users"></i> <span class="nav-label">Usuarios</span></a>
                     
                 </li>
+    <?php } if ($_SESSION['a200']==1) {?> 
                 <li >
                     <a href="crealevantamiento.php"><i class="fa fa-home"></i> <span class="nav-label">Crea levantamiento</span></a>
                     
                 </li>
+    <?php } if ($_SESSION['a60']==1) {?> 
                 <li >
                     <a href="#" data-toggle="modal" data-target="#modalcrealistado"><i class="fa fa-list"></i> <span class="nav-label">Crear listado</span></a>
                     
                 </li>
+    <?php } if ($_SESSION['a40']==1) {?> 
                 <li >
                     <a href="listadoenespera.php"><i class="fa fa-clock-o"></i> <span class="nav-label">Listados en espera</span></a>
                     
                 </li>
+    <?php } if ($_SESSION['a50']==1) {?> 
                 <li >
                     <a href="listadoenviado.php"><i class="fa fa-send"></i> <span class="nav-label">Listados enviados</span></a>
                     
                 </li>
+    <?php } if ($_SESSION['a30']==1) {?> 
                 <li >
                     <a href="clientes.php"><i class="fa fa-address-card-o"></i> <span class="nav-label">Clientes</span></a>
                     
-                </li> 
+                </li>
+    <?php } if ($_SESSION['a20']==1) {?> 
                 <li >
                     <a href="proveedores.php"><i class="fa fa-address-card"></i> <span class="nav-label">Proveedores</span></a>
                     
                 </li>
+    <?php } if ($_SESSION['a200']==1) {?> 
                 <li >
                     <a href="marcas.php"><i class="fa fa-address-card"></i> <span class="nav-label">Marca</span></a>
                     
                 </li>
+    <?php } if ($_SESSION['a200']==1) {?> 
                 
                 
 
@@ -79,34 +109,45 @@
                 <li>
                     <a href="tablerocombustion.php"><i class="fa fa-tint"></i> <span class="nav-label">Tablero de combustion </span></a>
                 </li>
+    <?php } if ($_SESSION['b200']==1) {?> 
                 <li>
                     <a href="tableroelectrico.php"><i class="fa fa-flash"></i> <span class="nav-label">Tablero de electricos </span></a>
                 </li>
+    <?php } if ($_SESSION['c200']==1) {?> 
                 <li>
                     <a href="tableroreparacion.php"><i class="fa fa-cogs"></i> <span class="nav-label">Tablero de reparación </span></a>
                 </li>
+    <?php } if ($_SESSION['d200']==1) {?> 
                 <li>
                     <a href="tablerorefaccion.php"><i class="fa fa-gear"></i> <span class="nav-label">Tablero de refacción </span></a>
                 </li>
+    <?php } if ($_SESSION['a90']==1) {?> 
                 <li>
                     <a href="#" data-toggle="modal" data-target="#modalprecotizar"><i class="fa fa-calculator"></i> <span class="nav-label">Pre-Cotizar</span></a>
+                </li>
+    <?php } if ($_SESSION['a120']==1) {?>       
                 <li>
                     <a href="#"><i class="fa fa-wrench"></i> <span class="nav-label">Control de herramienta </span></a>
                 </li>
+    <?php } if ($_SESSION['a110']==1) {?> 
                 <li>
                     <a href="#"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Mandar reporte </span></a>
                 </li>
+    <?php } if ($_SESSION['a111']==1) {?> 
                 <li>
                     <a href="#"><i class="fa fa-clock-o"></i> <span class="nav-label">Reportes en espera </span></a>
                 </li>
+    <?php } if ($_SESSION['a112']==1) {?> 
                 <li>
                     <a href="#"><i class="fa fa-history"></i> <span class="nav-label">Historial de reportes </span></a>
                 </li>
+    <?php } if ($_SESSION['a10']==1) {?> 
                 
                 <li >
                     <a target="blank" href="../Content/dashboard_2.html"><i class="fa fa-address-card"></i> <span class="nav-label">INSPINIA</span></a>
                     
                 </li>
+    <?php } ?> 
                
             </ul>
 
@@ -218,7 +259,7 @@
         </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <a href="login.html">
+                    <a href="../Controlador/salir.php">
                         <i class="fa fa-sign-out"></i> Salir
                     </a>
                 </li>

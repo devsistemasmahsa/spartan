@@ -1,3 +1,13 @@
+<?php 
+    if (isset($_GET['E'])) {
+
+       $error110='Error: Verifique el usuario o la contraseña';
+        
+    }
+    else{
+        $error110="";
+    }
+ ?>
 <!DOCTYPE html>
 <html>
 
@@ -30,12 +40,12 @@
             </div>
             <div class="col-md-6">
                 <div class="ibox-content">
-                    <form class="m-t" role="form" action="../controlador/validalogin.php">
+                    <form class="m-t" role="form" method="POST" action="../controlador/validalogin.php">
                         <div class="form-group">
-                            <input type="email" value="a@a.com" class="form-control" placeholder="Usuario" required="">
+                            <input type="text" value="ar17" name="xnu" class="form-control" placeholder="Usuario" required="">
                         </div>
                         <div class="form-group">
-                            <input type="password" value="123" class="form-control" placeholder="Contraseña" required="">
+                            <input type="password" value="12345" name="xnp" class="form-control" placeholder="Contraseña" required="">
                         </div>
                         <button type="submit" class="btn btn-primary block full-width m-b">Entrar</button>
 
@@ -48,6 +58,7 @@
                         </p>
                         <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a> -->
                     </form>
+                        <p><span style="font-weight: bold;color: red;"><?php echo $error110; ?></span></p>
                     <p class="m-t">
                         <small>MAHSA &copy; <?php echo date('Y'); ?></small>
                     </p>

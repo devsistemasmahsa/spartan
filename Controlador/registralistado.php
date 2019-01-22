@@ -1,9 +1,10 @@
 <?php 
 //AQUI EVALUAMOS SI VIENE CON O SIN LEVANTAMIENTO DESPÚES CREAMOS EL LISTADO PARA EVITAR FOLIOS DUPLICADOS
 // isset($_POST['folio'])
-if (isset($_POST['levantamiento'])) {
+if (isset($_POST['levantamiento']) and isset($_POST['sucursal'])) {
 	require '../Modelo/conexion.php';
 	$levantamiento=trim($_POST['levantamiento']);
+	$sucursal=trim($_POST['sucursal']);
 
 	if ($levantamiento=1 and isset($_POST['folio'])) {
 		$folio=trim($_POST['folio']);
@@ -53,7 +54,7 @@ if (isset($_POST['levantamiento'])) {
     			</table>
     		');
     	mysqli_close($conexionbdwm);
-    	header('Location: ../Vista/crealistado.php');
+    	header('Location: ../Vista/crealistado.php?le='.base64_encode($folio).'&c='.base64_encode('cle').'');
 
 
 
@@ -61,7 +62,7 @@ if (isset($_POST['levantamiento'])) {
 		// BUSCAMOS EL ULTIMO LISTADO
 		//SELECT num_listado FROM listados where sucursal='$sucursal'
 		//jalamos sucursal de las variables de sesion 
-		$sucursal="HMO";
+		$sucursal=trim($_POST['sucursal']);
 		$buscalistado = "SELECT num_listado FROM listados WHERE sucursal='$sucursal' ORDER BY num_listado DESC LIMIT 1";
     	$eje_buscalistado = mysqli_query($conexionbdwm, $buscalistado) or die("no se puede checar");
 
@@ -79,7 +80,7 @@ if (isset($_POST['levantamiento'])) {
 
 		//CREAMOS EL LISTADO SIN LEVANTAMIENTO
 		//jalamos sucursal de las variables de sesion 
-		$sucursal="HMO";
+		$sucursal=trim($_POST['sucursal']);
 		$reg_listado="INSERT INTO listados (num_listado,num_levantamiento,fecha_listado,sucursal) values(  $last_listado,'$num_lev','$fecha','$sucursal')";
 		$eje_reg_listado=mysqli_query($conexionbdwm,$reg_listado)or die('
 			<table border="1px" align="center">
@@ -100,7 +101,7 @@ if (isset($_POST['levantamiento'])) {
     			</table>
     		');
     	mysqli_close($conexionbdwm);
-    	header('Location: ../Vista/crealistado.php');
+    	header('Location: ../Vista/crealistado.php?le='.base64_encode($num_lev).'');
 	}
 
 	

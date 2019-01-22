@@ -27,7 +27,7 @@
                                 
                              </center>
                              <input type="text" class="form-control input-sm m-b-xs" id="filter"
-                            placeholder="Buscar error por codigo o descripcion">
+                            placeholder="Busca error por codigo o descripcion">
                              <table class="footable table-striped table-bordered table-hover" data-filter=#filter>
                                 <thead>
                                 <tbody>
@@ -83,6 +83,34 @@
                                  <tr>
                                      <td>112</td>
                                      <td>Problemas al obtener los permisos</td>
+                                 </tr>
+                                 <tr>
+                                     <td>113</td>
+                                     <td>Problemas al actualizar permisos de usuario</td>
+                                 </tr>
+                                 <tr>
+                                     <td>114</td>
+                                     <td>Problemas al actualizar permisos de usuario</td>
+                                 </tr>
+                                 <tr>
+                                     <td>115</td>
+                                     <td>Problemas al actualizar datos del listado</td>
+                                 </tr>
+                                 <tr>
+                                     <td>116</td>
+                                     <td>Problemas al guardar reporte</td>
+                                 </tr>
+                                 <tr>
+                                     <td>117</td>
+                                     <td>No se pudo obtener el listado de reportes</td>
+                                 </tr>
+                                 <tr>
+                                     <td>118</td>
+                                     <td>No se pudo obtener el listado de mano de obras</td>
+                                 </tr>
+                                 <tr>
+                                     <td>119</td>
+                                     <td>No se pudo obtener el listado de refacciones</td>
                                  </tr>
                              </tbody>
                              <tfoot>

@@ -90,11 +90,14 @@ if (isset($_POST['xnu']) and isset($_POST['xnp'])) {
     	$_SESSION['a112']=$a112;
     	$_SESSION['a120']=$a120;
     	//PERMISOS ACCESO A TABLEROS
-    	$_SESSION['a200']=$a200;
+    	/*$_SESSION['a200']=$a200;
     	$_SESSION['b200']=$b200;
     	$_SESSION['c200']=$c200;
-    	$_SESSION['d200']=$d200;
+    	$_SESSION['d200']=$d200;*/
     	//PERMISOS TABLERO DE COMBUSTION
+        $_SESSION['a200']=$a200;
+        $_SESSION['a201']=$a201;
+        $_SESSION['a202']=$a202;
     	$_SESSION['a210']=$a210;
     	$_SESSION['a211']=$a211;
     	$_SESSION['a212']=$a212;
@@ -112,6 +115,9 @@ if (isset($_POST['xnu']) and isset($_POST['xnp'])) {
     	$_SESSION['a260']=$a260;
     	$_SESSION['a261']=$a261;
     	//PERMISOS TABLERO DE ELECTRICO
+        $_SESSION['b200']=$b200;
+        $_SESSION['b201']=$b201;
+        $_SESSION['b202']=$b202;
     	$_SESSION['b210']=$b210;
     	$_SESSION['b211']=$b211;
     	$_SESSION['b212']=$b212;
@@ -129,13 +135,17 @@ if (isset($_POST['xnu']) and isset($_POST['xnp'])) {
     	$_SESSION['b260']=$b260;
     	$_SESSION['b261']=$b261;
     	//PERMISOS TABLERO DE REPARACION
-    	$_SESSION['c201']=$c201;
+        $_SESSION['c200']=$c200;
+        $_SESSION['c201']=$c201;
+    	$_SESSION['c202']=$c202;
     	$_SESSION['c250']=$c250;
     	$_SESSION['c251']=$c251;
     	$_SESSION['c260']=$c260;
     	$_SESSION['c261']=$c261;
     	//PERMISOS TABLERO DE REFACCION
-    	$_SESSION['d201']=$d201;
+        $_SESSION['d200']=$d200;
+        $_SESSION['d201']=$d201;
+    	$_SESSION['d202']=$d202;
     	$_SESSION['d220']=$d220;
     	$_SESSION['d221']=$d221;
     	$_SESSION['d222']=$d222;
@@ -145,7 +155,8 @@ if (isset($_POST['xnu']) and isset($_POST['xnp'])) {
     	$_SESSION['d233']=$d233;
     	$_SESSION['d240']=$d240;
     	$_SESSION['d260']=$d260;
-    	$_SESSION['d261']=$d261;
+        $_SESSION['d261']=$d261;
+    	$_SESSION['a500']=$a500;
 
 		mysqli_close($conexionbdwm);
     	header('Location: ../Vista/indexprincipal.php');

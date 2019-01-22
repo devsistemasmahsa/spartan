@@ -9,7 +9,7 @@
 
                     ?>
                                     <div class="row">
-                                        <form action="cale.php" method="post">
+                                        <form action="../Controlador/actualizapermisos.php" method="post">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="row">
                                                     <fieldset>
@@ -18,6 +18,7 @@
                                                         <fieldset>
                                                     <legend><b>Usuarios</b></legend>
                                                     <h4><b>Ver usuarios</b></h4>
+                                                    <input type="hidden" value="<?php echo $id ?>" readonly name="iduser">
                                             <?php if ($a10==1) { ?>
                                                 <div class="radio radio-info radio-inline">
                                                     <input type="radio" id="a10a" value="1" name="a10" checked="">
@@ -530,7 +531,7 @@
                                                         <fieldset>
                                                     <legend><b>Tableros</b></legend>
                                                     <h4><b>Tableros</b></h4><?php //crear permiso para opcion en menu ?>
-                                                <?php if ($a200==1) { ?>
+                                                <?php if ($a500==1) { ?>
                                                 <div class="radio radio-info radio-inline">
                                                     <input type="radio" id="a500a" value="1" name="a500" checked="">
                                                     <label for="a500a"> Si </label>
@@ -640,24 +641,44 @@
                                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                                                         <fieldset>
                                                     <legend><b>Tablero de combustión</b></legend>
-                                                    <h4><b>Agregar levantamiento</b></h4>
-                                                    <?php if ($a200==1) { ?>
+                                                    <h4><b>Eliminar levantamiento</b></h4>
+                                                    <?php if ($a201==1) { ?>
                                                 <div class="radio radio-info radio-inline">
-                                                    <input type="radio" id="a200a" value="1" name="a200" checked="">
-                                                    <label for="a200a"> Si </label>
+                                                    <input type="radio" id="a201a" value="1" name="a201" checked="">
+                                                    <label for="a201a"> Si </label>
                                                 </div>
                                                 <div class="radio radio-inline">
-                                                    <input type="radio" id="a200b" value="0" name="a200">
-                                                    <label for="a200b"> No </label>
+                                                    <input type="radio" id="a201b" value="0" name="a201">
+                                                    <label for="a201b"> No </label>
                                                 </div>
                                             <?php }else{ ?>
                                                 <div class="radio radio-info radio-inline">
-                                                    <input type="radio" id="a200a" value="1" name="a200" >
-                                                    <label for="a200a"> Si </label>
+                                                    <input type="radio" id="a201a" value="1" name="a201" >
+                                                    <label for="a201a"> Si </label>
                                                 </div>
                                                 <div class="radio radio-inline">
-                                                    <input type="radio" id="a200b" value="0" name="a200" checked="">
-                                                    <label for="a200b"> No </label>
+                                                    <input type="radio" id="a201b" value="0" name="a201" checked="">
+                                                    <label for="a201b"> No </label>
+                                                </div>
+                                            <?php } ?>
+                                                    <h4><b>Agregar levantamiento</b></h4>
+                                                    <?php if ($a202==1) { ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="a202a" value="1" name="a202" checked="">
+                                                    <label for="a202a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="a202b" value="0" name="a202">
+                                                    <label for="a202b"> No </label>
+                                                </div>
+                                            <?php }else{ ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="a202a" value="1" name="a202" >
+                                                    <label for="a202a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="a202b" value="0" name="a202" checked="">
+                                                    <label for="a202b"> No </label>
                                                 </div>
                                             <?php } ?>
                                                     <h4><b>Agregar listado</b></h4>
@@ -680,7 +701,7 @@
                                                     <label for="a210b"> No </label>
                                                 </div>
                                             <?php } ?>
-                                                    <h4><b>Eliminar listado</b></h4>
+                                                    <h4><b>Ver listado</b></h4>
                                                     <?php if ($a211==1) { ?>
                                                 <div class="radio radio-info radio-inline">
                                                     <input type="radio" id="a211a" value="1" name="a211" checked="">
@@ -698,6 +719,26 @@
                                                 <div class="radio radio-inline">
                                                     <input type="radio" id="a211b" value="0" name="a211" checked="">
                                                     <label for="a211b"> No </label>
+                                                </div>
+                                            <?php } ?>
+                                            <h4><b>Eliminar listado</b></h4>
+                                                    <?php if ($a212==1) { ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="a212a" value="1" name="a212" checked="">
+                                                    <label for="a212a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="a212b" value="0" name="a212">
+                                                    <label for="a212b"> No </label>
+                                                </div>
+                                            <?php }else{ ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="a212a" value="1" name="a212" >
+                                                    <label for="a212a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="a212b" value="0" name="a212" checked="">
+                                                    <label for="a212b"> No </label>
                                                 </div>
                                             <?php } ?>
                                                     <h4><b>Agregar cotización</b></h4>
@@ -945,25 +986,45 @@
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                                                          <fieldset>
+                                                    <h4><b>Eliminar levantamiento</b></h4>
+                                                    <?php if ($b201==1) { ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="b201a" value="1" name="b201" checked="">
+                                                    <label for="b201a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="b201b" value="0" name="b201">
+                                                    <label for="b201b"> No </label>
+                                                </div>
+                                            <?php }else{ ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="b201a" value="1" name="b201" >
+                                                    <label for="b201a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="b201b" value="0" name="b201" checked="">
+                                                    <label for="b201b"> No </label>
+                                                </div>
+                                            <?php } ?>
                                                     <legend><b>Tablero de electricos</b></legend>
                                                     <h4><b>Agregar levantamiento</b></h4>
                                                     <?php if ($b200==1) { ?>
                                                 <div class="radio radio-info radio-inline">
-                                                    <input type="radio" id="b200a" value="1" name="b200" checked="">
-                                                    <label for="b200a"> Si </label>
+                                                    <input type="radio" id="b200a" value="1" name="b202" checked="">
+                                                    <label for="b202a"> Si </label>
                                                 </div>
                                                 <div class="radio radio-inline">
-                                                    <input type="radio" id="b200b" value="0" name="b200">
-                                                    <label for="b200b"> No </label>
+                                                    <input type="radio" id="b202b" value="0" name="b202">
+                                                    <label for="b202b"> No </label>
                                                 </div>
                                             <?php }else{ ?>
                                                 <div class="radio radio-info radio-inline">
-                                                    <input type="radio" id="b200a" value="1" name="b200" >
-                                                    <label for="b200a"> Si </label>
+                                                    <input type="radio" id="b202a" value="1" name="b202" >
+                                                    <label for="b202a"> Si </label>
                                                 </div>
                                                 <div class="radio radio-inline">
-                                                    <input type="radio" id="b200b" value="0" name="b200" checked="">
-                                                    <label for="b200b"> No </label>
+                                                    <input type="radio" id="b202b" value="0" name="b202" checked="">
+                                                    <label for="b202b"> No </label>
                                                 </div>
                                             <?php } ?>
                                                     <h4><b>Agregar listado</b></h4>
@@ -1271,24 +1332,24 @@
                                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                                                         <fieldset>
                                                     <legend><b>Tablero de reparación</b></legend>
-                                                    <h4><b>Agregar levantamiento</b></h4>
-                                                    <?php if ($c200==1) { ?>
+                                                    <h4><b>Agregar reparación</b></h4>
+                                                    <?php if ($c202==1) { ?>
                                                 <div class="radio radio-info radio-inline">
-                                                    <input type="radio" id="c200a" value="1" name="c200" checked="">
-                                                    <label for="c200a"> Si </label>
+                                                    <input type="radio" id="c202a" value="1" name="c202" checked="">
+                                                    <label for="c202a"> Si </label>
                                                 </div>
                                                 <div class="radio radio-inline">
-                                                    <input type="radio" id="c200b" value="0" name="c200">
-                                                    <label for="c200b"> No </label>
+                                                    <input type="radio" id="c202b" value="0" name="c202">
+                                                    <label for="c202b"> No </label>
                                                 </div>
                                             <?php }else{ ?>
                                                 <div class="radio radio-info radio-inline">
-                                                    <input type="radio" id="c200a" value="1" name="c200" >
-                                                    <label for="c200a"> Si </label>
+                                                    <input type="radio" id="c202a" value="1" name="c202" >
+                                                    <label for="c202a"> Si </label>
                                                 </div>
                                                 <div class="radio radio-inline">
-                                                    <input type="radio" id="c200b" value="0" name="c200" checked="">
-                                                    <label for="c200b"> No </label>
+                                                    <input type="radio" id="c202b" value="0" name="c202" checked="">
+                                                    <label for="c202b"> No </label>
                                                 </div>
                                             <?php } ?>
                                                     <h4><b>Eliminar levantamiento</b></h4>
@@ -1391,13 +1452,51 @@
                                                     <label for="c261b"> No </label>
                                                 </div>
                                             <?php } ?>
-                                                
-
                                                 </fieldset><br> 
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                                                         <fieldset>
                                                     <legend><b>Tablero de refacción</b></legend>
+                                                    <h4><b>Eliminar levantamiento</b></h4>
+                                                    <?php if ($d201==1) { ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="d201a" value="1" name="d201" checked="">
+                                                    <label for="d201a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="d201b" value="0" name="d201">
+                                                    <label for="d201b"> No </label>
+                                                </div>
+                                            <?php }else{ ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="d201a" value="1" name="d201" >
+                                                    <label for="d201a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="d201b" value="0" name="d201" checked="">
+                                                    <label for="d201b"> No </label>
+                                                </div>
+                                            <?php } ?>
+                                                    <h4><b>Agregar refacción</b></h4>
+                                                    <?php if ($d202==1) { ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="d202a" value="1" name="d202" checked="">
+                                                    <label for="d202a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="d202b" value="0" name="d202">
+                                                    <label for="d202b"> No </label>
+                                                </div>
+                                            <?php }else{ ?>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="d202a" value="1" name="d202" >
+                                                    <label for="d202a"> Si </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="d202b" value="0" name="d202" checked="">
+                                                    <label for="d202b"> No </label>
+                                                </div>
+                                            <?php } ?>
                                                     <h4><b>Agregar cotización</b></h4>
                                                     <?php if ($d220==1) { ?>
                                                 <div class="radio radio-info radio-inline">

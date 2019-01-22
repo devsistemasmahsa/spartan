@@ -547,4 +547,15 @@
 
 
     </script>
+    <script>
+        function disable() {
+                document.getElementById("q1").disabled = true;
+                document.getElementById("q2").disabled = true;
+            }
+
+            function undisable() {
+                document.getElementById("q1").disabled = false;
+                document.getElementById("q2").disabled = false;
+            }
+    </script>
     

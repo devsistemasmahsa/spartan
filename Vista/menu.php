@@ -10,7 +10,7 @@ if (!isset($_SESSION['nombre'])) {
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="../content/img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" src="../content/img/profile_small.png" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong style="color: white" class="font-bold"><?php echo $_SESSION['nombre']; ?></strong>
@@ -131,15 +131,15 @@ if (!isset($_SESSION['nombre'])) {
                 </li>
     <?php } if ($_SESSION['a110']==1) {?> 
                 <li>
-                    <a href="#"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Mandar reporte </span></a>
+                    <a href="creareporte.php"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Mandar reporte </span></a>
                 </li>
     <?php } if ($_SESSION['a111']==1) {?> 
                 <li>
-                    <a href="#"><i class="fa fa-clock-o"></i> <span class="nav-label">Reportes en espera </span></a>
+                    <a href="rep_espera.php"><i class="fa fa-clock-o"></i> <span class="nav-label">Reportes en espera </span></a>
                 </li>
     <?php } if ($_SESSION['a112']==1) {?> 
                 <li>
-                    <a href="#"><i class="fa fa-history"></i> <span class="nav-label">Historial de reportes </span></a>
+                    <a href="rep_historial.php"><i class="fa fa-history"></i> <span class="nav-label">Historial de reportes </span></a>
                 </li>
     <?php } if ($_SESSION['a10']==1) {?> 
                 
@@ -234,6 +234,7 @@ if (!isset($_SESSION['nombre'])) {
                                             mysqli_close($conexionbdwm);
                                             ?>
                                             </select>
+                                            <input type="hidden" readonly value="<?php echo $_SESSION['sucursal'] ?>" name='sucursal'>
                                             </div>
                                             
                                         </div>

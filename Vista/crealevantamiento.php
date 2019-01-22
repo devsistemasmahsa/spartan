@@ -61,7 +61,7 @@
                                         while ($rowmarca=mysqli_fetch_array($eje_buscamarca)) {
                                             extract($rowmarca);
                                             echo "
-                                            <option value=".$Id_cliente.">".$nombre."</option>
+                                            <option value=".$nombre.">".$nombre."</option>
                                             ";
                                         }
                                         mysqli_close($conexionbdwm);

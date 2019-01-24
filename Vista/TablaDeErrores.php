@@ -112,6 +112,11 @@
                                      <td>119</td>
                                      <td>No se pudo obtener el listado de refacciones</td>
                                  </tr>
+                                 <tr>
+                                     <td>120</td>
+                                     <td>Problemas en la inserción la mano de obra</td>
+                                 </tr>
+
                              </tbody>
                              <tfoot>
                                 <tr>

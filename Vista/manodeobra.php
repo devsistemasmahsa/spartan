@@ -136,7 +136,7 @@ extract($resultado2);
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div class="form-group"><label>&nbsp</label><a href="refacciones.php?l=<?php echo base64_encode($l) ?>" class="btn btn-primary btn-block"><strong> Siguiente <i class="fa fa-arrow-right"></i></strong></a>
+                            <div class="form-group"><label>&nbsp</label><a href="../Controlador/finalizamanoobra.php?l=<?php echo base64_encode($l) ?>" class="btn btn-primary btn-block"><strong> Siguiente <i class="fa fa-arrow-right"></i></strong></a>
                             </div>
                             </div>
                             

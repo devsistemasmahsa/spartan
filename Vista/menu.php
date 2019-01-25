@@ -204,7 +204,7 @@ if (!isset($_SESSION['nombre'])) {
                                             </div>
                                             
                                             <div id="levantamientos" class="form-group"><label>Levantamiento</label> 
-                                            <select class="form-control m-b" name="folio">
+                                            <select class="chosen-select m-b" name="folio">
                                                 <option selected="true" disabled="true">Selecciona un levantamiento</option>
                                                 <?php //IMPRIMIMOS TODOS LOS LEVANTAMIENTOS
                                             require '../Modelo/conexion.php';

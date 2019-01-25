@@ -37,7 +37,7 @@
                                     <div class="form-group"><label>Folio</label> <input type="text" placeholder="" name="folio" class="form-control"></div>
                                     <div class="form-group"><label>No. Económico</label> <input type="text" placeholder="" name="noeconomico" class="form-control"></div>
                                     <div class="form-group"><label>cliente</label> 
-                                    <select class="form-control m-b" name="cliente">
+                                    <select class="chosen-select m-b" name="cliente">
                                         <option disabled="true" selected="true">Seleccione cliente</option>
                                         <?php //IMPRIMIMOS TODOS LOS CLIENTES
                                         require '../Modelo/conexion.php';
@@ -69,7 +69,7 @@
                                     </select>
                                     </div>
                                     <div class="form-group"><label>Tipo de levantamiento</label> 
-                                            <select class="form-control m-b" name="tipolev">
+                                            <select class="chosen-select m-b" name="tipolev">
                                                 <option selected="true" disabled="true">Selecciona sucursal</option>
                                                 <option value="1">Combustión</option>
                                                 <option value="2">Eléctrico</option>
@@ -78,7 +78,7 @@
                                             </select>
                                     </div>
                                     <div class="form-group"><label>Sucursal</label> 
-                                            <select class="form-control m-b" name="sucursal">
+                                            <select class="chosen-select m-b" name="sucursal">
                                                 <option selected="true" disabled="true">Selecciona sucursal</option>
                                                 <option value="HMO">Hermosillo</option>
                                                 <option value="GYS">Guaymas</option>

@@ -52,6 +52,8 @@ extract($resultado2);
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <input type="hidden" value="<?php echo $l ?>" name="lis" id="lis"  readonly="true">
+                                            <input type="hidden" value="<?php echo $_SESSION['nombre'] ?>" name="nom" id="nom"  readonly="true">
+                                            <input type="hidden" value="<?php echo $_SESSION['sucursal'] ?>" name="suc" id="suc"  readonly="true">
                                            <center><h4>Selecciona un listado</h4></center>
                                             <select data-placeholder="Selecciona el usuario" onchange="cale(this.value)" name="noempleado" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
 
@@ -85,6 +87,8 @@ extract($resultado2);
                                         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                                       }
                                       var list = $("#lis").val();
+                                      var nomb = $("#nom").val();
+                                      var sucu = $("#suc").val();
                                       xmlhttp.onreadystatechange = function() {
                                         if (this.readyState == 4 && this.status == 200) {
                                           document.getElementById("datospermisos").innerHTML = this.responseText;
@@ -92,7 +96,7 @@ extract($resultado2);
                                       };
                                       /*console.log(list);
                                       console.log(str);*/
-                                      xmlhttp.open("GET","../Controlador/getdatoscodigo.php?q="+str+"&l="+list,true);
+                                      xmlhttp.open("GET","../Controlador/getdatoscodigo.php?q="+str+"&l="+list+"&n="+nomb+"&s="+sucu,true);
                                       xmlhttp.send();
                                     }
                                   }
@@ -110,9 +114,10 @@ extract($resultado2);
                                 <thead>
                                     <tr>
 
-                                        <th data-toggle="true">Codigo</th>
+                                        <th data-toggle="true">Cantidad</th>
+                                        <th>No. de parte</th>
                                         <th>Descripción</th>
-                                        <th>Tiempo</th>
+                                        <th>Mano de obra</th>
                                         <th>Acción</th>
                                     </tr>
                                 </thead>
@@ -141,9 +146,10 @@ extract($resultado2);
                                             echo "
                                             <tr>
                                                 
-                                                <td>".$codigoref."</td>
+                                                <td>".$cantidadref."</td>
+                                                <td>".$no_parteref."</td>
                                                 <td>".$descripcionref."</td>
-                                                <td>".$horasref."</td>
+                                                <td>".$codigoref."</td>
                                                 <td>
                                                     <form action='../Controlador/eliminacliente.php' method='POST'>
                                                         <input type='hidden' value='".$Id_refaccion."' name='idxno'>
@@ -165,7 +171,7 @@ extract($resultado2);
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div class="form-group"><label>&nbsp</label><a href="refacciones.php?l=<?php echo base64_encode('$l') ?>" class="btn btn-primary btn-block"><strong> Siguiente <i class="fa fa-arrow-right"></i></strong></a>
+                            <div class="form-group"><label>&nbsp</label><a href="../Controlador/finalizarefacciones.php?l=<?php echo base64_encode($l) ?>" class="btn btn-primary btn-block"><strong> Terminar listado <i class="fa fa-arrow-right"></i></strong></a>
                             </div>
                             </div>
                             

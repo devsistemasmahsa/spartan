@@ -22,8 +22,8 @@
                 <div class="row">
                     <?php //AQUI VA EL CONTENIDO DE LA PAGINA ?>
                           <div class="jumbotron">
-                             
-                            <center><h4>Selecciona un listado</h4></center>
+                             <center><p>LISTADOS EN ESPERA</p>
+                            <h4>Selecciona un listado</h4></center>
                             <select data-placeholder="Selecciona el usuario" onchange="cale(this.value)" id="noempleado" name="noempleado" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
 
                             <option value="" disabled="" selected="">Selecciona un listado</option>

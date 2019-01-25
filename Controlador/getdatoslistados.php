@@ -47,7 +47,7 @@
                                                 </fieldset>
                                                 <fieldset>
                                                     <legend>Mano de obra</legend>
-                                                    
+                                                    <div class="table-responsive"> 
                             <table class="footable table table-stripped" data-filter=#filter>
                                 <thead>
                                     <tr>
@@ -102,10 +102,12 @@
                                     </tr>
                                 </tfoot>
                             </table>
+                        </div>
 
                                                 </fieldset>
                                                 <fieldset>
                                                     <legend>Refacciones</legend>
+                                    <div class="table-responsive">               
                                 <table class="footable table table-stripped" data-filter=#filter>
                                 <thead>
                                     <tr>
@@ -113,6 +115,7 @@
                                         <th data-toggle="true">Cantidad</th>
                                         <th>No. de parte</th>
                                         <th>Descripción</th>
+                                        <th>Codigo relacionado</th>
                                         <th style="width: 100px;"><a href="#" class="btn btn-success btn-block " ><i class="fa fa-plus-square-o"></i> Modificar refacciones</a></th>
                                     </tr>
                                 </thead>
@@ -144,6 +147,7 @@
                                                 <td>".$cantidadref."</td>
                                                 <td>".$no_parteref."</td>
                                                 <td>".$descripcionref."</td>
+                                                <td>".$codigoref."</td>
                                                 
                                             </tr>
                                             ";
@@ -159,7 +163,7 @@
                                         </td>
                                     </tr>
                                 </tfoot>
-                            </table>
+                            </table></div> 
                                                 </fieldset>
                                             </div>
                                             <div class="row">

@@ -55,13 +55,13 @@
                                         <th data-toggle="true">Codigo</th>
                                         <th>Descripción</th>
                                         <th>Horas</th>
-                                        <th style="width: 100px;"><a href="#" class="btn btn-success  btn-block"><i class="fa fa-plus-square-o"></i> Modificar mano de obra</a></th>
+                                        <th style="width: 100px;"><!-- <a href="#" class="btn btn-success  btn-block"><i class="fa fa-plus-square-o"></i> Modificar mano de obra</a> --></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                    <?php //IMPRIMIMOS TODOS LOS USUARIOS
                                         require '../Modelo/conexion.php';
-                                        $buscausuarios = "SELECT * FROM manodeobra";
+                                        $buscausuarios = "SELECT * FROM manodeobra where num_listadomo=$Id_listados";
                                         $eje_buscausuarios = mysqli_query($conexionbdwm, $buscausuarios) or die("
                                             <table border='1px' align='center'>
                                                     <tr>
@@ -116,13 +116,13 @@
                                         <th>No. de parte</th>
                                         <th>Descripción</th>
                                         <th>Codigo relacionado</th>
-                                        <th style="width: 100px;"><a href="#" class="btn btn-success btn-block " ><i class="fa fa-plus-square-o"></i> Modificar refacciones</a></th>
+                                        <th style="width: 100px;"><!-- <a href="#" class="btn btn-success btn-block " ><i class="fa fa-plus-square-o"></i> Modificar refacciones</a> --></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                    <?php //IMPRIMIMOS TODOS LOS USUARIOS
                                         require '../Modelo/conexion.php';
-                                        $buscausuarios = "SELECT * FROM refacciones";
+                                        $buscausuarios = "SELECT * FROM refacciones where num_listadoref=$Id_listados";
                                         $eje_buscausuarios = mysqli_query($conexionbdwm, $buscausuarios) or die("
                                             <table border='1px' align='center'>
                                                     <tr>

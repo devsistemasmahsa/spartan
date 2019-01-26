@@ -54,10 +54,10 @@ extract($resultado2);
                                             <input type="hidden" value="<?php echo $l ?>" name="lis" id="lis"  readonly="true">
                                             <input type="hidden" value="<?php echo $_SESSION['nombre'] ?>" name="nom" id="nom"  readonly="true">
                                             <input type="hidden" value="<?php echo $_SESSION['sucursal'] ?>" name="suc" id="suc"  readonly="true">
-                                           <center><h4>Selecciona un listado</h4></center>
+                                           <center><h4>Selecciona un codigo</h4></center>
                                             <select data-placeholder="Selecciona el usuario" onchange="cale(this.value)" name="noempleado" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
 
-                                            <option value="" disabled="" selected="">Selecciona un listado</option>
+                                            <option value="" disabled="" selected="">Selecciona un codigo</option>
                                             <?php
                                             require('../Modelo/conexion.php');
 
@@ -96,7 +96,7 @@ extract($resultado2);
                                       };
                                       /*console.log(list);
                                       console.log(str);*/
-                                      xmlhttp.open("GET","../Controlador/getdatoscodigo.php?q="+str+"&l="+list+"&n="+nomb+"&s="+sucu,true);
+                                      xmlhttp.open("GET","../Controlador/getdatosmodcodigo.php?q="+str+"&l="+list+"&n="+nomb+"&s="+sucu,true);
                                       xmlhttp.send();
                                     }
                                   }
@@ -151,7 +151,7 @@ extract($resultado2);
                                                 <td>".$descripcionref."</td>
                                                 <td>".$codigoref."</td>
                                                 <td>
-                                                    <form action='../Controlador/eliminarefaccion.php' method='POST'>
+                                                    <form action='../Controlador/eliminamodrefaccion.php' method='POST'>
                                                         <input type='hidden' value='".$l."' name='idxni'>
                                                         <input type='hidden' value='".$Id_refaccion."' name='idxno'>
                                                         <button type='submit' class='btn btn-danger'><i class='fa fa-trash'></i>Eliminar</button>
@@ -172,7 +172,7 @@ extract($resultado2);
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div class="form-group"><label>&nbsp</label><a href="../Controlador/finalizarefacciones.php?l=<?php echo base64_encode($l) ?>" class="btn btn-primary btn-block"><strong> Terminar listado <i class="fa fa-arrow-right"></i></strong></a>
+                            <div class="form-group"><label>&nbsp</label><a href="../Controlador/finalizamodrefacciones.php?l=<?php echo base64_encode($l) ?>&u=<?php echo $_SESSION['nombre']; ?>" class="btn btn-primary btn-block"><strong><i class="fa fa-floppy-o"></i> Terminar </strong></a>
                             </div>
                             </div>
                             

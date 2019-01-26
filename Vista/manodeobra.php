@@ -117,6 +117,7 @@ extract($resultado2);
                                                 <td>".$horasmo."</td>
                                                 <td>
                                                     <form action='../Controlador/eliminacliente.php' method='POST'>
+                                                        <input type='hidden' value='".$l."' name='idxni'>
                                                         <input type='hidden' value='".$Id_mano_obra."' name='idxno'>
                                                         <button type='submit' class='btn btn-danger'><i class='fa fa-trash'></i>Eliminar</button>
                                                     </form>

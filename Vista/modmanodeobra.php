@@ -1,12 +1,12 @@
 <?php 
 $l = base64_decode($_REQUEST['l']); 
-/*if (isset($_REQUEST['cod'])) {
+if (isset($_REQUEST['cod'])) {
     $cod = base64_decode($_REQUEST['cod']);
-    echo $l;
-    echo $cod;
+    /*echo $l;
+    echo $cod;*/
 }else{
 
-}*/
+}
  
 //echo $id;
 require '../Modelo/conexion.php';
@@ -39,7 +39,7 @@ extract($resultado2);
             <div class="wrapper wrapper-content">
                 <div class="ibox">
                         <div class="ibox-title">
-                            <h5>Añadir refacciones</h5>
+                            <h5>Añadir mano de obra</h5>
                             <div class="ibox-tools">
                                 
                             </div>
@@ -47,66 +47,33 @@ extract($resultado2);
                         <div class="ibox-content">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                            
-                                
+
+                                <form role="form" action="../Controlador/registramodmanodeobra.php" method="POST">
                                     <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <input type="hidden" value="<?php echo $l ?>" name="lis" id="lis"  readonly="true">
-                                            <input type="hidden" value="<?php echo $_SESSION['nombre'] ?>" name="nom" id="nom"  readonly="true">
-                                            <input type="hidden" value="<?php echo $_SESSION['sucursal'] ?>" name="suc" id="suc"  readonly="true">
-                                           <center><h4>Selecciona un listado</h4></center>
-                                            <select data-placeholder="Selecciona el usuario" onchange="cale(this.value)" name="noempleado" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
-
-                                            <option value="" disabled="" selected="">Selecciona un listado</option>
-                                            <?php
-                                            require('../Modelo/conexion.php');
-
-                                            $rs = mysqli_query($conexionbdwm, "SELECT * FROM manodeobra where num_listadomo=$l");
-                                            while($row=mysqli_fetch_array($rs))
-                                            {
-                                              echo "<option value='".$row['codigomo']."'>";
-                                              echo $row['codigomo']." - ".$row['descripcionmo'];
-                                              echo "</option>";                     
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="form-group"><label>Folio (numero de listado)</label> <input type="text" placeholder="" name="folio" class="form-control" readonly value="<?php echo $l; ?>"></div>
+                                            <div class="form-group"><label>Codigo</label> <?php 
+                                            if (!empty($cod)) {
+                                                //$cod = $_GET['cod'];
+                                                echo "<input type='text' placeholder='' name='codi' class='form-control' value='".$cod."' readonly>";
+                                            } else {
+                                                echo "<input type='text'  name='codi' class='form-control required' placeholder='[0000]' readonly >";
                                             }
-
-                                            mysqli_close($conexionbdwm);
                                             ?>
-
-                                          </select>
-                                          <script>
-                            function cale(str) {
-                              if (str == "") {
-                                document.getElementById("datospermisos").innerHTML = "";
-                                return;
-                              } else { 
-                                if (window.XMLHttpRequest) {
-                                        // code for IE7+, Firefox, Chrome, Opera, Safari
-                                        xmlhttp = new XMLHttpRequest();
-                                      } else {
-                                        // code for IE6, IE5
-                                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                                      }
-                                      var list = $("#lis").val();
-                                      var nomb = $("#nom").val();
-                                      var sucu = $("#suc").val();
-                                      xmlhttp.onreadystatechange = function() {
-                                        if (this.readyState == 4 && this.status == 200) {
-                                          document.getElementById("datospermisos").innerHTML = this.responseText;
-                                        }
-                                      };
-                                      /*console.log(list);
-                                      console.log(str);*/
-                                      xmlhttp.open("GET","../Controlador/getdatoscodigo.php?q="+str+"&l="+list+"&n="+nomb+"&s="+sucu,true);
-                                      xmlhttp.send();
-                                    }
-                                  }
-                                </script>
-                                <br><br>
-                                <div id="datospermisos"></div>
+                                            </div>
+                                            <div class="form-group"><label>Codificador</label> <a href="MODSLMOTEC.php?list=<?php echo $l; ?>" class="btn btn-success btn-block"><i class="fa fa-barcode"></i> Codificador</a>
+                                            </div>
                                         </div>
-                                        
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <input type="hidden" readonly name="usuario" value="<?php echo $_SESSION['nombre'] ?>">
+                                            <input type="hidden" readonly name="sucursal" value="<?php echo $_SESSION['sucursal'] ?>">
+                                            <div class="form-group"><label>Descripción</label> <input type="text" placeholder="" name="descripcion" class="form-control"></div>
+                                            <div class="form-group"><label>Tiempo</label> <input type="text" placeholder="" name="tiempo" class="form-control"></div>
+                                            <div class="form-group"><label>&nbsp</label><button class="btn btn-primary btn-block"  type="submit"><i class="fa fa-plus-square-o"></i><strong> Agregar</strong></button>
+                                            </div>
+                                        </div>
                                     </div>
-                                
+                                </form>
                                  <hr>
                                  <input type="text" class="form-control input-sm m-b-xs" id="filter"
                             placeholder="Buscar trabajo por codigo o descripción">
@@ -114,17 +81,16 @@ extract($resultado2);
                                 <thead>
                                     <tr>
 
-                                        <th data-toggle="true">Cantidad</th>
-                                        <th>No. de parte</th>
+                                        <th data-toggle="true">Codigo</th>
                                         <th>Descripción</th>
-                                        <th>Mano de obra</th>
+                                        <th>Tiempo</th>
                                         <th>Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                    <?php //IMPRIMIMOS TODOS LOS USUARIOS
                                         require '../Modelo/conexion.php';
-                                        $buscausuarios = "SELECT * FROM refacciones where num_listadoref=$l";
+                                        $buscausuarios = "SELECT * FROM manodeobra where num_listadomo=$l";
                                         $eje_buscausuarios = mysqli_query($conexionbdwm, $buscausuarios) or die("
                                             <table border='1px' align='center'>
                                                     <tr>
@@ -146,14 +112,13 @@ extract($resultado2);
                                             echo "
                                             <tr>
                                                 
-                                                <td>".$cantidadref."</td>
-                                                <td>".$no_parteref."</td>
-                                                <td>".$descripcionref."</td>
-                                                <td>".$codigoref."</td>
+                                                <td>".$codigomo."</td>
+                                                <td>".$descripcionmo."</td>
+                                                <td>".$horasmo."</td>
                                                 <td>
-                                                    <form action='../Controlador/eliminarefaccion.php' method='POST'>
+                                                    <form action='../Controlador/eliminamodmanoobra.php' method='POST'>
                                                         <input type='hidden' value='".$l."' name='idxni'>
-                                                        <input type='hidden' value='".$Id_refaccion."' name='idxno'>
+                                                        <input type='hidden' value='".$Id_mano_obra."' name='idxno'>
                                                         <button type='submit' class='btn btn-danger'><i class='fa fa-trash'></i>Eliminar</button>
                                                     </form>
                                                 </td>
@@ -172,7 +137,7 @@ extract($resultado2);
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div class="form-group"><label>&nbsp</label><a href="../Controlador/finalizarefacciones.php?l=<?php echo base64_encode($l) ?>" class="btn btn-primary btn-block"><strong> Terminar listado <i class="fa fa-arrow-right"></i></strong></a>
+                            <div class="form-group"><label>&nbsp</label><a href="../Controlador/finalizamodmanoobra.php?l=<?php echo base64_encode($l)?>&u=<?php echo $_SESSION['nombre']; ?>" class="btn btn-primary btn-block"><strong><i class="fa fa-floppy-o"></i> Terminar </strong></a>
                             </div>
                             </div>
                             

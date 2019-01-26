@@ -1,7 +1,12 @@
 <?php 
 require '../Modelo/conexion.php';
 $l = base64_decode($_REQUEST['l']); 
-$registradatos = "UPDATE listados SET mo_agregadas='SI' WHERE num_listado=$l";
+$u =$_GET['u']; 
+date_default_timezone_set('America/Hermosillo');
+$clock = strftime("%H:%M:%S", time());
+$fecha= date("d-m-Y")." - ".$clock;
+$registradatos = "UPDATE listados SET usuariomod='$u', fechamod='$fecha' WHERE num_listado=$l";
+
 
     	
     	$eje_registradatos = mysqli_query($conexionbdwm, $registradatos) or die('
@@ -25,7 +30,7 @@ $registradatos = "UPDATE listados SET mo_agregadas='SI' WHERE num_listado=$l";
 
 
     	mysqli_close($conexionbdwm);
-    	header('Location: ../Vista/manodeobra.php?l='.base64_encode($l).'');
+    	header('Location: ../Vista/indexprincipal.php');
 
 
  ?>

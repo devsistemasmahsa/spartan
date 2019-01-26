@@ -169,7 +169,7 @@
                                             <div class="row">
                                                 <?php // AQUI PREGUNTA POR EL PERMISO PARA ENVIAR(CREAR MVC) ?>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                    <a href="../Controlador/envilisesp.php?l=<?php echo $num_listado; ?>" class="btn btn-primary btn-block"><i class="fa fa-envelope-o"></i> Enviar por correo</a>
+                                                    <a href="../Controlador/envilisesp.php?l=<?php echo $num_listado; ?>" class="btn btn-primary btn-block"><i class="fa fa-envelope-o"></i> Reenviar listado por correo</a>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                                     <a href="#" class="btn btn-danger btn-block"><i class="fa fa-file-pdf-o"></i> Descargar PDF</a>

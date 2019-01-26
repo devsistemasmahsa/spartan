@@ -29,8 +29,8 @@
                             <option value="" disabled="" selected="">Selecciona un listado</option>
                             <?php
                             require('../Modelo/conexion.php');
-
-                            $rs = mysqli_query($conexionbdwm, "SELECT * FROM listados where not_terminado=1");
+                            $suc=$_SESSION['sucursal'];
+                            $rs = mysqli_query($conexionbdwm, "SELECT * FROM listados where not_terminado=1 and sucursal='$suc'");
                             while($row=mysqli_fetch_array($rs))
                             {
                               echo "<option value='".$row['Id_listados']."'>";

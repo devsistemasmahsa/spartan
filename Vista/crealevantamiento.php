@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="form-group"><label>Tipo de levantamiento</label> 
                                             <select class="chosen-select m-b" name="tipolev">
-                                                <option selected="true" disabled="true">Selecciona sucursal</option>
+                                                <option selected="true" disabled="true">Selecciona el tipo</option>
                                                 <option value="1">Combustión</option>
                                                 <option value="2">Eléctrico</option>
                                                 <option value="3">Reparación</option>

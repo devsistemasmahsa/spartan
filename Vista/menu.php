@@ -166,20 +166,45 @@ if (!isset($_SESSION['nombre'])) {
                                             <small class="font-bold">Fecha de precotización: <?php echo date('d-m-Y') ?></small>
                                         </div>
                                         <div class="modal-body">
-                                            
+                                            <form action="precotizacion.php" method="POST">
                                             <div class="form-group"><label>Listado</label> 
-                                            <select class="form-control m-b" name="account">
-                                                <option selected="true" disabled="true">Selecciona un listado</option>
-                                                <option>Hermosillo</option>
-                                                <option>Guaymas</option>
-                                                <option>Nogales </option>
+                                            <select class="chosen-select m-b" name="folio">
+                                                <option selected="true" disabled="true">Selecciona un levantamiento</option>
+                                                <?php //IMPRIMIMOS TODOS LOS LEVANTAMIENTOS
+                                            require '../Modelo/conexion.php';
+                                            $buscalistado = "SELECT Id_listados,num_listado,cliente FROM listados where not_terminado=1 and not_enviado= 1 and not_precotizacion=0";
+                                            $eje_buscalistado = mysqli_query($conexionbdwm, $buscalistado) or die("
+                                                    <table border='1px' align='center'>
+                                                        <tr>
+                                                            <th>Error</th>
+                                                            <th>Descripcion</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>105</td>
+                                                            <td>
+                                                                <ul style='list-style:none;'><br>
+                                                                    <li>No se pudo obtener los levantamientos</li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                ");
+                                            while ($rowlistado=mysqli_fetch_array($eje_buscalistado)) {
+                                                extract($rowlistado);
+
+                                                echo "
+                                            <option value=".$num_listado.">".$num_listado." - ".$cliente."</option>";
+                                            }
+                                            mysqli_close($conexionbdwm);
+                                            ?>
                                             </select>
                                             </div>
                                         </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                                            <button type="button" class="btn btn-primary">Siguiente</button>
+                                            <button type="submit" class="btn btn-primary">Siguiente</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

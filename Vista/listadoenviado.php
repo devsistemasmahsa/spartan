@@ -27,14 +27,51 @@
                                 <p>Selecciona un listado</p>
                                 
                              </center>
-                             <div class="form-group"> 
-                                <select class="form-control m-b" name="account">
-                                    <option disabled="true" selected="true">Seleccione listado</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                            </div>
+                             <select data-placeholder="Selecciona el usuario" onchange="cale(this.value)" id="noempleado" name="noempleado" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
+
+                            <option value="" disabled="" selected="">Selecciona un listado</option>
+                            <?php
+                            require('../Modelo/conexion.php');
+                            $suc=$_SESSION['sucursal'];
+                            $rs = mysqli_query($conexionbdwm, "SELECT * FROM listados where not_terminado=1 and not_enviado=1 and sucursal='$suc'");
+                            while($row=mysqli_fetch_array($rs))
+                            {
+                              echo "<option value='".$row['Id_listados']."'>";
+                              echo $row['num_listado']." - ".$row['cliente'];
+                              echo "</option>";                     
+                            }
+
+                            mysqli_close($conexionbdwm);
+                            ?>
+
+                          </select>
+
+                          <script>
+                            function cale(str) {
+                              if (str == "") {
+                                document.getElementById("datospermisos").innerHTML = "";
+                                return;
+                              } else { 
+                                if (window.XMLHttpRequest) {
+                                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                                        xmlhttp = new XMLHttpRequest();
+                                      } else {
+                                        // code for IE6, IE5
+                                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                                      }
+                                      xmlhttp.onreadystatechange = function() {
+                                        if (this.readyState == 4 && this.status == 200) {
+                                          document.getElementById("datospermisos").innerHTML = this.responseText;
+                                        }
+                                      };
+                                      xmlhttp.open("GET","../Controlador/getdatoslistadosenvi.php?q="+str,true);
+                                      xmlhttp.send();
+                                    }
+                                  }
+                                </script>
+                                <br><br>
+                                <div id="datospermisos"></div>
+                                  
                             <?php // AQUI SE IMPRIME EL LISTADO CON SCRIPT AJAX ?>
                          </div>
 

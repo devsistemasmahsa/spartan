@@ -116,6 +116,26 @@
                                      <td>120</td>
                                      <td>Problemas en la inserción la mano de obra</td>
                                  </tr>
+                                 <tr>
+                                     <td>121</td>
+                                     <td>Problemas con el envio del listado a refacciones</td>
+                                 </tr>
+                                 <tr>
+                                     <td>120</td>
+                                     <td>Problemas</td>
+                                 </tr>
+                                 <tr>
+                                     <td>120</td>
+                                     <td>Problemas</td>
+                                 </tr>
+                                 <tr>
+                                     <td>120</td>
+                                     <td>Problemas</td>
+                                 </tr>
+                                 <tr>
+                                     <td>120</td>
+                                     <td>Problemas</td>
+                                 </tr>
 
                              </tbody>
                              <tfoot>

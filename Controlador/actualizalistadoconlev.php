@@ -5,8 +5,7 @@ if (isset($_POST['cliente']) and isset($_POST['folio']) and isset($_POST['tecnic
 	isset($_POST['no_eco']) and isset($_POST['horometro']) and isset($_POST['capacidad']) and 
 	isset($_POST['tipo']) and isset($_POST['estado']) and isset($_POST['mastil']) and 
 	isset($_POST['mar_aditamento']) and isset($_POST['mod_aditamento']) and isset($_POST['quien']) and
-	 isset($_POST['falla']) and isset($_POST['traslado']) and isset($_POST['trasquien']) and 
-	 isset($_POST['obs']) and isset($_POST['id'])) {
+	 isset($_POST['falla']) and isset($_POST['traslado']) and isset($_POST['obs']) and isset($_POST['id'])) {
 	require '../Modelo/conexion.php';
 
 
@@ -27,7 +26,16 @@ $mod_aditamento=strtoupper($_POST['mod_aditamento']);
 $quien=strtoupper($_POST['quien']);
 $falla=strtoupper($_POST['falla']);
 $traslado=strtoupper($_POST['traslado']);
-$trasquien=strtoupper($_POST['trasquien']);
+if ($traslado=='si') {
+	if (isset($_POST['trasquien'])) {
+		$trasquien=strtoupper($_POST['trasquien']);
+	}else{
+		$trasquien='SIN TRASLADO';
+	}
+}else{
+	$trasquien='SIN TRASLADO';
+}
+
 $obs=strtoupper($_POST['obs']);
 $id=trim($_POST['id']);
 

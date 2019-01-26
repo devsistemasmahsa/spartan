@@ -2,11 +2,14 @@
 $levantamientourl = base64_decode($_REQUEST['le']); 
 //echo $levantamientourl;
 require '../Modelo/conexion.php';
-$buscalevantamiento = "SELECT * FROM listados WHERE num_levantamiento='$levantamientourl'";
+$buscalevantamiento = "SELECT * FROM listados WHERE num_levantamiento=$levantamientourl";
 $eje_buscalevantamiento = mysqli_query($conexionbdwm, $buscalevantamiento) or die("no se puede checar");
 $resultado2 = mysqli_fetch_array($eje_buscalevantamiento);
 extract($resultado2);
-if (!empty($cliente)) {?>
+$clientelevan=$resultado2['cliente'];
+//echo $clientelevan;
+if (!empty($clientelevan)) {?>
+
 <!DOCTYPE html>
 <html>
   
@@ -52,7 +55,8 @@ if (!empty($cliente)) {?>
                                         </div>
                                         <div class="form-group">
                                             <label>Cliente</label>
-                                            <input id="userName" name="cliente" type="text" class="form-control" value="<?php echo $cliente ?>" readonly="true">
+
+                                            <input id="userName" name="cliente" type="text" class="form-control" value="<?php echo $clientelevan ?>" readonly="true">
                                             
                                         </div>
                                         <div class="form-group">
@@ -80,7 +84,7 @@ if (!empty($cliente)) {?>
                                     <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Marca</label>
-                                                <select data-placeholder="Selecciona la marca"  id="marca" name="marca" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
+                                                <select data-placeholder="Selecciona la marca"  id="marca" name="marca" class="chosen-select col-sm-10" style="width:350px;"  required="llenar campo">
                                             <option value="" disabled="" selected="">Selecciona un marca</option>
                                             <?php
                                             require('../Modelo/conexion.php');
@@ -124,7 +128,7 @@ if (!empty($cliente)) {?>
                                             
                                             <div class="form-group">
                                                 <label>Tipo</label>
-                                                <select data-placeholder="Selecciona la tipo"  id="tipo" name="tipo" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
+                                                <select data-placeholder="Selecciona la tipo"  id="tipo" name="tipo" class="chosen-select col-sm-10" style="width:350px;"  required="llenar campo">
                                             <option value="" disabled="" selected="">Selecciona un tipo</option>
                                             <option value='APILADOR'>APILADOR</option>
                                             <option value='CARGADOR DE BATERIAS'>CARGADOR DE BATERIAS</option>
@@ -143,7 +147,7 @@ if (!empty($cliente)) {?>
                                             </div>
                                             <div class="form-group">
                                                 <label>Estado del equipo</label>
-                                                <select data-placeholder="Seleccion"  id="estado" name="estado" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
+                                                <select data-placeholder="Seleccion el estado del equipo"  id="estado" name="estado" class="chosen-select col-sm-10" style="width:350px;"  required="llenar campo">
                                             <option value="" disabled="" selected="">Seleccion</option>
                                             <option value="FUNCIONANDO" >FUNCIONANDO</option>
                                             <option value="PARADO" >PARADO</option>
@@ -288,7 +292,7 @@ if (!empty($cliente)) {?>
                                         </div>
                                         <div class="form-group">
                                             <label>Cliente</label><?php //AQUI VA UN SELECT PORQUE ES SIN LEVANTAMIENTO ?>
-                                            <select data-placeholder="Selecciona el cliente"  id="" name="cliente" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
+                                            <select data-placeholder="Selecciona el cliente"  id="" name="cliente" class="chosen-select col-sm-10" style="width:350px;"  required="llenar campo">
                                             <option value="" disabled="" selected="">Selecciona un cliente</option>
                                             <?php
                                             require('../Modelo/conexion.php');
@@ -331,7 +335,7 @@ if (!empty($cliente)) {?>
                                     <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Marca</label>
-                                                <select data-placeholder="Selecciona la marca"  id="marca" name="marca" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
+                                                <select data-placeholder="Selecciona la marca"  id="marca" name="marca" class="chosen-select col-sm-10" style="width:350px;"  required="llenar campo">
                                             <option value="" disabled="" selected="">Selecciona un marca</option>
                                             <?php
                                             require('../Modelo/conexion.php');
@@ -375,7 +379,7 @@ if (!empty($cliente)) {?>
                                             
                                             <div class="form-group">
                                                 <label>Tipo</label>
-                                                <select data-placeholder="Selecciona la tipo"  id="tipo" name="tipo" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
+                                                <select data-placeholder="Selecciona la tipo"  id="tipo" name="tipo" class="chosen-select col-sm-10" style="width:350px;"  required="llenar campo">
                                             <option value="" disabled="" selected="">Selecciona un tipo</option>
                                             <option value='APILADOR'>APILADOR</option>
                                             <option value='CARGADOR DE BATERIAS'>CARGADOR DE BATERIAS</option>
@@ -394,7 +398,7 @@ if (!empty($cliente)) {?>
                                             </div>
                                             <div class="form-group">
                                                 <label>Estado del equipo</label>
-                                                <select data-placeholder="Seleccion"  id="estado" name="estado" class="chosen-select col-sm-10" style="width:350px;" tabindex="4" required="llenar campo">
+                                                <select data-placeholder="Seleccion"  id="estado" name="estado" class="chosen-select col-sm-10" style="width:350px;"  required="llenar campo">
                                             <option value="" disabled="" selected="">Seleccion</option>
                                             <option value="FUNCIONANDO" >FUNCIONANDO</option>
                                             <option value="PARADO" >PARADO</option>

@@ -107,6 +107,9 @@ if (!isset($_SESSION['nombre'])) {
                     </ul>
                 </li>-->
                 <li>
+                    <a href="tableros.php"><i class="fa fa-tint"></i> <span class="nav-label">TABLEROS</span></a>
+                </li>
+                <li>
                     <a href="tablerocombustion.php"><i class="fa fa-tint"></i> <span class="nav-label">Tablero de combustion </span></a>
                 </li>
     <?php } if ($_SESSION['b200']==1) {?> 

@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body class="fixed-sidebar pace-done">
     <div id="wrapper">
         <?php require '../Vista/menu.php'; ?>
         </div>

@@ -43,7 +43,44 @@ while ($rowlevantamiento=mysqli_fetch_array($eje_buscalevantamiento)) {
     <td>".$clientelev."</td>
     <td>".$no_economicolev."</td>
     <td>".$sucursallev."</td>";
-                                                        // BUSCAMOS LOS DATOS DEL LISTADO
+    // BUSCAMOS LOS DATOS DEL LISTADO
+    echo "
+    <td colspan='2'><center><button type='button' class='btn btn-danger'>Listados</button></center></td>
+
+
+
+    ";
+    echo "
+    <td colspan='4'><center><button type='button' class='btn btn-danger'>Cotizaciones</button></center></td>
+
+
+
+    ";
+    echo "
+    <td colspan='2'><center><button type='button' class='btn btn-danger'>Pedidos</button></center></td>
+
+
+
+    ";
+    echo "
+    <td colspan='7'><center><button type='button' class='btn btn-danger'>Proveedores</button></center></td>
+
+
+
+    ";
+    echo "
+    <td colspan='4'><center><button type='button' class='btn btn-danger'>Orden de trabajo</button></center></td>
+
+
+
+    ";
+    echo "
+    <td colspan='2'><center><button type='button' class='btn btn-danger'>Factura</button></center></td>
+
+
+
+    ";
+
     $buscalistado="SELECT * FROM levantamientos where tipolevantamiento =1";
     $eje_buscalistado=mysqli_query($conexionbdwm,$buscalistado);
 
@@ -63,33 +100,10 @@ while ($rowlevantamiento=mysqli_fetch_array($eje_buscalevantamiento)) {
 
 
 
-
-
     echo"
 
-
-
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
-    <td>XCVB</td>
+    
+    
     </tr>
 
     ";

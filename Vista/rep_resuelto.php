@@ -17,7 +17,7 @@ if (isset($_POST['idxno'])) {
 
 
 <!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/dashboard_2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Oct 2017 15:24:24 GMT -->
-<head>
+<head class="fixed-sidebar pace-done">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

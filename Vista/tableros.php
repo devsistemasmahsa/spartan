@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="pace-done mini-navbar no-skin-config full-height-layout">
+<body class="fixed-sidebar pace-done">
     <div id="wrapper">
         <?php require 'menutablero.php'; ?>
         </div>
@@ -44,15 +44,15 @@
                                                     </div>
                                             </div>
                                             <div class="ibox-content table-responsive">
-                                                <!-- <input type="text" class="form-control input-sm m-b-xs" id="filter"
-                                                       placeholder="Buscar en el tablero"><br> -->
+                                                <!-- --><input type="text" class="form-control input-sm m-b-xs" id="filter"
+                                                       placeholder="Buscar en el tablero"><br> 
                                                 <div class="">
-                                                <table class="dataTables-example table table-stripped table-hover table-sm" data-page-size="8" data-filter="#filter">
+                                                <table class="footable table table-stripped table-hover table-sm table-bordered" data-page-size="8" data-filter="#filter">
                                                     <thead>
                                                     <tr>
                                                         <th>Opciones</th>
                                                         <th style="background-color: #34495e; color: white">Estado</th>
-                                                        <th data-hide="phone" style="background-color: #34495e; color: white">Folio</th>
+                                                        <th style="background-color: #abb2b9; color: white">Folio</th>
                                                         <th data-hide="phone" style="background-color: #abb2b9; color: white">Fecha</th>
                                                         <th data-hide="phone" style="background-color: #abb2b9; color: white">Cliente</th>
                                                         <th data-hide="phone" style="background-color: #abb2b9; color: white">No. económico</th>

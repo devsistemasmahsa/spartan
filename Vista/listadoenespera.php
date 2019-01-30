@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body class="pace-done fixed-sidebar ">
     <div id="wrapper">
         <?php require 'menu.php'; ?>
         </div>
@@ -81,7 +81,7 @@
 
                 </div>
             </div>
-        <div class="footer">
+        <div class="footer fixed">
             <div>
                 <strong>Copyright</strong> MAHSA &copy; <?php date('Y'); ?>
             </div>

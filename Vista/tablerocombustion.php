@@ -14,7 +14,7 @@
 
 </head>
 
-<body >
+<body class="fixed-sidebar pace-done">
     <div id="wrapper">
         <?php require 'menu.php'; ?>
         </div>
@@ -44,32 +44,32 @@
                                 <tr>
                                     <th>Opciones</th>
                                     <th style="background-color: #34495e; color: white">Estado</th>
-                                    <th data-hide="phone" style="background-color: #34495e; color: white">Folio</th>
-                                    <th data-hide="phone" style="background-color: #abb2b9; color: white">Fecha</th>
-                                    <th data-hide="phone" style="background-color: #abb2b9; color: white">Cliente</th>
-                                    <th data-hide="phone" style="background-color: #abb2b9; color: white">No. económico</th>
-                                    <th data-hide="phone" style="background-color: #abb2b9; color: white">Ubicación</th>
-                                    <th data-hide="phone" style="background-color: #ec7063; color: white">Listado</th>
-                                    <th data-hide="phone" style="background-color: #ec7063; color: white">Fecha listado</th>
-                                    <th data-hide="phone" style="background-color: #5dade2; color: white">Cotización</th>
-                                    <th data-hide="phone" style="background-color: #5dade2; color: white">Fecha cotización</th>
-                                    <th data-hide="phone" style="background-color: #5dade2; color: white">Tiempo de M.O.</th>
-                                    <th data-hide="phone" style="background-color: #5dade2; color: white">Tiempo de refacciones</th>
-                                    <th data-hide="phone" style="background-color: #a1887f; color: white">Pedido</th>
-                                    <th data-hide="phone" style="background-color: #a1887f; color: white">Fecha pedido</th>
-                                    <th data-hide="phone" style="background-color: #bb8fce; color: white">Proveedor</th>
-                                    <th data-hide="phone" style="background-color: #bb8fce; color: white">Tiempo de pedido</th>
-                                    <th data-hide="phone" style="background-color: #bb8fce; color: white">Paqueteria</th>
-                                    <th data-hide="phone" style="background-color: #bb8fce; color: white">Recepción aduana</th>
-                                    <th data-hide="phone" style="background-color: #bb8fce; color: white">Importación</th>
-                                    <th data-hide="phone" style="background-color: #bb8fce; color: white">Recepción MAHSA</th>
-                                    <th data-hide="phone" style="background-color: #bb8fce; color: white">Fecha promesa compras</th>
-                                    <th data-hide="phone" style="background-color: #2e64fe; color: white">Orden de trabajo</th>
-                                    <th data-hide="phone" style="background-color: #2e64fe; color: white">Apertura O.T.</th>
-                                    <th data-hide="phone" style="background-color: #2e64fe; color: white">Cierre O.T.</th>
-                                    <th data-hide="phone" style="background-color: #2e64fe; color: white">Fecha promesa</th>
-                                    <th data-hide="phone" style="background-color: orange; color: white">Factura</th>
-                                    <th data-hide="phone" style="background-color: orange; color: white">Fecha factura</th>
+                                    <th data-hide="phone,tablet" style="background-color: #34495e; color: white">Folio</th>
+                                    <th data-hide="phone,tablet" style="background-color: #abb2b9; color: white">Fecha</th>
+                                    <th data-hide="phone,tablet" style="background-color: #abb2b9; color: white">Cliente</th>
+                                    <th data-hide="phone,tablet" style="background-color: #abb2b9; color: white">No. económico</th>
+                                    <th data-hide="phone,tablet" style="background-color: #abb2b9; color: white">Ubicación</th>
+                                    <th data-hide="phone,tablet" style="background-color: #ec7063; color: white">Listado</th>
+                                    <th data-hide="phone,tablet" style="background-color: #ec7063; color: white">Fecha listado</th>
+                                    <th data-hide="phone,tablet" style="background-color: #5dade2; color: white">Cotización</th>
+                                    <th data-hide="phone,tablet" style="background-color: #5dade2; color: white">Fecha cotización</th>
+                                    <th data-hide="phone,tablet" style="background-color: #5dade2; color: white">Tiempo de M.O.</th>
+                                    <th data-hide="phone,tablet" style="background-color: #5dade2; color: white">Tiempo de refacciones</th>
+                                    <th data-hide="phone,tablet" style="background-color: #a1887f; color: white">Pedido</th>
+                                    <th data-hide="phone,tablet" style="background-color: #a1887f; color: white">Fecha pedido</th>
+                                    <th data-hide="phone,tablet" style="background-color: #bb8fce; color: white">Proveedor</th>
+                                    <th data-hide="phone,tablet" style="background-color: #bb8fce; color: white">Tiempo de pedido</th>
+                                    <th data-hide="phone,tablet" style="background-color: #bb8fce; color: white">Paqueteria</th>
+                                    <th data-hide="phone,tablet" style="background-color: #bb8fce; color: white">Recepción aduana</th>
+                                    <th data-hide="phone,tablet" style="background-color: #bb8fce; color: white">Importación</th>
+                                    <th data-hide="phone,tablet" style="background-color: #bb8fce; color: white">Recepción MAHSA</th>
+                                    <th data-hide="phone,tablet" style="background-color: #bb8fce; color: white">Fecha promesa compras</th>
+                                    <th data-hide="phone,tablet" style="background-color: #2e64fe; color: white">Orden de trabajo</th>
+                                    <th data-hide="phone,tablet" style="background-color: #2e64fe; color: white">Apertura O.T.</th>
+                                    <th data-hide="phone,tablet" style="background-color: #2e64fe; color: white">Cierre O.T.</th>
+                                    <th data-hide="phone,tablet" style="background-color: #2e64fe; color: white">Fecha promesa</th>
+                                    <th data-hide="phone,tablet" style="background-color: orange; color: white">Factura</th>
+                                    <th data-hide="phone,tablet" style="background-color: orange; color: white">Fecha factura</th>
                                 </tr>
                                 </thead>
                                 <tbody>

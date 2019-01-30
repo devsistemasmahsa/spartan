@@ -29,7 +29,7 @@ $clientelevan=$resultado2['cliente'];
 
 </head>
 
-<body>
+<body class="fixed-sidebar pace-done">
     <div id="wrapper">
         <?php require 'menu.php'; ?>
         </div>

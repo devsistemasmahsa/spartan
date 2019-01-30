@@ -5,7 +5,7 @@ if (!isset($_SESSION['nombre'])) {
     exit();
 }
  ?>
-<nav class="navbar-default navbar-static-side" role="navigation">
+    <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">

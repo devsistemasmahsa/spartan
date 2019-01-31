@@ -61,8 +61,6 @@
    <!-- NouSlider -->
    <script src="../Content/js/plugins/nouslider/jquery.nouislider.min.js"></script>
 
-   <!-- Switchery -->
-   <script src="../Content/js/plugins/switchery/switchery.js"></script>
 
     <!-- IonRangeSlider -->
     <script src="../Content/js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>

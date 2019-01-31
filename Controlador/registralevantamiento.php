@@ -20,7 +20,7 @@ if (isset($_POST['folio']) and isset($_POST['noeconomico']) and isset($_POST['cl
     	mysqli_close($conexionbdwm);
     	//echo "<script>alert('El usuario ya existe');</script>";
     } else {//SI NO EXISTE SE GUARDA EN LA BASE DE DATOS
-    	$registralevantamiento = "INSERT INTO levantamientos (folio,cliente,no_economico,sucursal,fechalevantamiento,tipolevantamiento,estatustablero) VALUES ($folio,'$cliente','$noeconomico','$sucursal','$fecha',$tipolev,1)";
+    	$registralevantamiento = "INSERT INTO levantamientos (folio,cliente,no_economico,sucursal,fechalevantamiento,tipolevantamiento,estatustablero) VALUES ($folio,'$cliente','$noeconomico','$sucursal','$fecha',$tipolev,1.1)";
     	$eje_registralevantamiento = mysqli_query($conexionbdwm, $registralevantamiento) or die('
 			<table border="1px" align="center">
 					<tr>
